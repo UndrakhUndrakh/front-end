@@ -4,6 +4,8 @@ export default function Home() {
   const [historicalToolsData,  setHistoricalToolsData, ] = useState([]);
   const [touristAttractionsData, setTouristAttractionsData, ] = useState([]);
   const [instrumentsData, setInstrumentsData] = useState([]);
+  const [ethnicGroupsData, setEthnicGroupsData] = useState([]);
+  const [historicalFiguresData, setHistoricalFiguresData] = useState([]);
   const [provincesData, setprovincesData] = useState([]); 
 
   useEffect(() => {
@@ -23,6 +25,14 @@ export default function Home() {
         const historicalToolsResult = await historicalToolsResponse.json();
         setHistoricalToolsData(historicalToolsResult.historicalTools);
       
+        const ethnicGroupsResponse = await fetch("https://mongol-api-rest.vercel.app/ethnicGroups");
+        const ethnicGroupsResult = await ethnicGroupsResponse.json();
+        setEthnicGroupsData(ethnicGroupsResult.ethnicGroups);
+
+        const historicalFiguresResponse = await fetch("https://mongol-api-rest.vercel.app/historicalFigures");
+        const historicalFiguresResult = await historicalFiguresResponse.json();
+        setHistoricalFiguresData(historicalFiguresResult.historicalFigures);
+        
         const provincesResponse = await fetch("https://mongol-api-rest.vercel.app/provinces");
         const provincesResult = await provincesResponse.json();
         setprovincesData(provincesResult.provinces);
@@ -33,6 +43,13 @@ export default function Home() {
     };  
     fetchData();
   }, []);
+
+  const filterData = (category) => {
+    if (!search) return category; 
+    return category.filter(item =>
+      item.name.toLowerCase().includes(search.toLowerCase())
+    );
+  };
 
   return (
     <div className="mx-auto p-8">
@@ -68,6 +85,13 @@ export default function Home() {
 
       <h1 className="text-3xl font-semibold text-center mb-8 mt-12">Instruments</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <input
+            type="search"
+            placeholder="Search by name"
+            onChange={(e) => setSearch(e.target.value)}
+            className="bg-gray-300 transition -translate-y-3 text-black ease-out delay-250 hover:shadow-md hover:shadow-gray-500 rounded-2xl px-3 py-2 w-1/2"
+          />
+
         {instrumentsData.map((item, index) => (
           <div key={index} className="bg-gray-100 rounded-lg shadow-lg">
             {item.images && (
@@ -122,16 +146,75 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div>
-        
+      
+      <h1 className="text-3xl font-semibold text-center mb-8 mt-12">ethnicGroups</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {ethnicGroupsData.map((item, index) => (
+          <div key={index} className="bg-gray-100 rounded-lg shadow-lg">
+            {item.images && (
+              <img
+                src={item.images}
+                alt={item.name}
+                className="w-full h-64 object-cover rounded-lg mb-4"
+              />
+            )}
+            <h3 className="text-lg font-md text-gray-800 ps-4">{item.name}</h3>
+            <p className="text-sm text-gray-600 mt-2 ps-4">{item.description}</p>
+
+            {item.materials && (
+              <p className="text-sm text-gray-600 mt-2 flex ps-4">
+                <h1>Materials:</h1> {item.materials}
+              </p>
+            )}
+
+            {item.timePeriod && (
+              <p className="text-sm text-gray-600 flex ps-4">
+                <h1>Time Period: </h1> {item.timePeriod}
+              </p>
+            )}
+          </div>
+        ))}
+        </div> 
+
+        <h1 className="text-3xl font-semibold text-center mb-8 mt-12">HistoricalFigures</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {historicalFiguresData.map((item, index) => (
+          <div key={index} className="bg-gray-100 rounded-lg shadow-lg">
+            {item.images && (
+              <img
+                src={item.images}
+                alt={item.name}
+                className="w-full h-64 object-cover rounded-lg mb-4"
+              />
+            )}
+            <h3 className="text-lg font-md text-gray-800 ps-4">{item.name}</h3>
+            <p className="text-sm text-gray-600 mt-2 ps-4">{item.description}</p>
+
+            {item.materials && (
+              <p className="text-sm text-gray-600 mt-2 flex ps-4">
+                <h1>Materials:</h1> {item.materials}
+              </p>
+            )}
+
+            {item.timePeriod && (
+              <p className="text-sm text-gray-600 flex ps-4">
+                <h1>Time Period: </h1> {item.timePeriod}
+              </p>
+            )}
+          </div>
+        ))}
       </div>
+      
+      <div>      
+    
+    </div>
       <h1 className="text-3xl font-semibold text-center mb-8 mt-12">Provinces</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {provincesData.map((item, index) => (
           <div key={index} className="bg-gray-100 rounded-lg shadow-lg">
             {item.images && (
               <img
-                src={item.images}
+                src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaYQe7sk8paP8GwcE7D6iEMSmj82HEVN8lZg&s"
                 alt={item.name}
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
