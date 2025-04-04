@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="flex justify-center items-center">
       <div className="bg-white border-2 border-black flex items-start p-10 m-10 h-[850px] w-[550px]">
@@ -19,7 +21,7 @@ export default function Home() {
             NAME OF SCHOOL
           </p>
           <p className="text-red-500 font-sans font-semibold pt-1 ">
-            Completion date and name of degree{" "}
+            Completion date and name of degree
           </p>
           <p className="pt-5">[Type 1st of accomplishment]</p>
           <p className="font-sans font-bold text-xl text-gray-500 pt-5">
@@ -48,6 +50,16 @@ export default function Home() {
           </p>
 
         </div>
+      </div>
+      <div className="justify-start items-start">
+      <button
+        className="border rounded-lg bg-gray-400 p-4 font-bold mb-2 hover:bg-blue-200"
+        onClick={() => {
+          router.back();
+        }}
+      >
+        back
+      </button>
       </div>
     </div>
   );

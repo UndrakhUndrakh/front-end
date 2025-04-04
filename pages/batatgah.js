@@ -21,7 +21,7 @@ export default function Batatgah() {
 
       </div>
       <div className="max-w-full h-80 mx-96 mt-16 bg-black grid grid-cols-3 gap-4">
-        <div className="bg-blue-900">
+        <div className="bg-gray-600">
             <p className="text-center mt-4 font-semibold">Why Choose Us?</p>
             <p className="text-center mt-4 space-y-4"></p>
             <p>High performance</p>  
@@ -29,8 +29,8 @@ export default function Batatgah() {
             
             
         </div>
-        <div className="bg-blue-900"></div>
-        <div className="bg-blue-900"></div>
+        <div className="bg-gray-600"></div>
+        <div className="bg-gray-600"></div>
 
       </div>
 

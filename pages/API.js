@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 export default function idid() {
@@ -12,7 +13,7 @@ export default function idid() {
   });
   const [search, setSearch] = useState("");
   const [grid, setGrid] = useState(true);
-
+  const router = useRouter()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -56,7 +57,7 @@ export default function idid() {
   };
 
   return (
-    <div className="w-screen h-scroll bg-gray-400 flex flex-col items-center justify-around px-4">
+    <div className="w-screen h-scroll bg-gray-400 flex flex-col items-start justify-around px-4">
       
       <div className="flex items-center justify-evenly w-screen h-24">
         <div className="flex items-start justify-center h-1/5 w-screen">
@@ -150,6 +151,17 @@ export default function idid() {
           </div>
         ))}
       </div>
+        <div className="items-start">
+        <button
+        className="border rounded-lg bg-gray-400 p-4 font-bold mb-2 hover:bg-blue-200 items-start"
+        onClick={() => {
+          router.back();
+        }}
+      >
+        back
+      </button>
+        </div>
     </div>
+    
   );
 }
