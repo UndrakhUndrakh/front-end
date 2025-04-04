@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-export default function idid() {
+export default function Api() {
   const [data, setData] = useState({
     touristAttractions: [],
     clothes: [],
