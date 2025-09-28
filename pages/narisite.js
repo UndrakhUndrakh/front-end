@@ -36,11 +36,11 @@ const letterData = {
             emoji: "💌", 
             mainTitle: "A Secret Letter Has Arrived!",
             // FIX: Escaped apostrophe in "what's"
-            content: "A cute little otter brought this letter just for you. Do you wanna open it up and see what&apos;s inside?",
+            content: "A cute little otter brought this letter just for you. Do you wanna open it up and see whats inside?",
             // FIX: Added missing 'buttons' array to fix 'map' error
             buttons: [ 
                 { label: "🔓 Okay open it!", action: "open", style: "primary" },
-                { label: "🙈 No, I don't wanna", action: "rejected", style: "secondary" }
+                { label: "🙈 No, I dont wanna", action: "rejected", style: "secondary" }
             ],
             cardClass: 'border-primary-pink',
             showOtter: true
@@ -52,7 +52,7 @@ const letterData = {
             content: 
                 "HELLOOOO Nari!!!,\n\n" +
                 // FIX: Escaped apostrophes in "you're"
-                "I hope you&apos;re doing well! And i know things are hard but i know youre really trying to be the best for other and yourself, " + 
+                "I hope youre doing well! And i know things are hard but i know youre really trying to be the best for other and yourself, " + 
                 "I have been thinking... I really love you and we made alot of memories together in two months!!!!! And I really miss you :(" +
                 "And i really want to try all over again with you:D:D:D. And I think we can really do it this time!!!\n\n" +
                 "And i wanna LOVE ALL YOUR INSECURITIES\n— Senka XP ❤️",
