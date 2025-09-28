@@ -118,10 +118,12 @@ const App = () => {
 
     return (
         <>
-            {/* Inject custom CSS for the animation and handwriting font */}
-            <style jsx global>{`
-                ${letterData.styles}
-            `}</style>
+            {/* CRITICAL FIX for Vercel Build Stability: 
+            Replaced <style jsx global> with standard <style> using dangerouslySetInnerHTML.
+            This is the safest way to inject raw, global CSS (like @keyframes) in a single-file Next.js component, 
+            preventing build failures related to CSS processing.
+            */}
+            <style dangerouslySetInnerHTML={{ __html: letterData.styles }} />
 
             <div className="min-h-screen flex items-center justify-center p-4 aphex-inspired-bg">
                 
