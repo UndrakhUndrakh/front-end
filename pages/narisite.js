@@ -55,7 +55,7 @@ const letterData = {
                 "I hope you&apos;re doing well! And i know things are hard but i know you&apos;re really trying to be the best for other and yourself, " + 
                 "I have been thinking... I really love you and we made alot of memories together in two months!!!!! And I really miss you :(" +
                 "And i really want to try all over again with you:D:D:D. And I think we can really do it this time!!!\n\n" +
-                "And i wanna LOVE ALL YOUR INSECURIT\n— Senka XP ❤️",
+                "And i wanna LOVE ALL YOUR INSECURITIES\n— Senka XP ❤️",
             buttons: [
                 { label: "Close Letter", action: "closed", style: "primary" }
             ],
