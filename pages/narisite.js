@@ -52,7 +52,7 @@ const letterData = {
             content: 
                 "HELLOOOO Nari!!!,\n\n" +
                 // FIX: Escaped apostrophes in "you're"
-                "I hope you&apos;re doing well! And i know things are hard but i know you&apos;re really trying to be the best for other and yourself, " + 
+                "I hope you&apos;re doing well! And i know things are hard but i know youre really trying to be the best for other and yourself, " + 
                 "I have been thinking... I really love you and we made alot of memories together in two months!!!!! And I really miss you :(" +
                 "And i really want to try all over again with you:D:D:D. And I think we can really do it this time!!!\n\n" +
                 "And i wanna LOVE ALL YOUR INSECURITIES\n— Senka XP ❤️",
@@ -67,7 +67,7 @@ const letterData = {
             emoji: "😭",
             mainTitle: "Aww, Are You Sure?",
             // FIX: Escaped apostrophes in "It's" and "you're"
-            content: "I wrote this letter just for you ToT! It&apos;s okay, you can open it anytime you&apos;re ready.",
+            content: "I wrote this letter just for you ToT! Its okay, you can open it anytime youre ready.",
             // FIX: Added missing 'buttons' array to fix 'map' error
             buttons: [ 
                 { label: "Okay, Maybe Later", action: "closed", style: "primary" }
