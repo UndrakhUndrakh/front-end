@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 // --- JavaScript Data (Equivalent to the appData object from the HTML file) ---
 const letterData = {
@@ -49,9 +50,9 @@ const letterData = {
             mainTitle: "Read It! Read It!",
             content: 
                 "HELLOOOO Nari!!!,\n\n" +
-                "I hope your doing well! And i know things are hard but i know your really trying to be the best for other and yourself, " +
-                "I have been thinking... I really love you and we made alot of memories together in two months!!!!! And I really miss you :( " +
-                "And i really want to try it all over again with you:D:D:D. And I think we can really do it this time!!!\n\n" +
+                "I hope you&apos;re doing well! And i know things are hard but i know you&apos;re really trying to be the best for other and yourself, " + // <-- FIX 1 & 2
+                "I have been thinking... I really love you and we made alot of memories together in two months!!!!! And I really miss you :(" +
+                "And i really want to try all over again with you:D:D:D. And I think we can really do it this time!!!\n\n" +
                 "And i wanna LOVE ALL YOUR INSECURITIES\n— Senka XP ❤️",
             buttons: [
                 { label: "Close Letter", action: "closed", style: "primary" }
@@ -139,12 +140,15 @@ const App = () => {
                             
                             {/* Otter Image (Shown only in closed state) */}
                             {currentState.showOtter ? (
-                                <img 
+                                <Image 
                                     id="otter-img" 
                                     src="https://placehold.co/100x100/ec4899/ffffff?text=🦦" 
                                     alt="Cute Otter" 
-                                    className="mx-auto h-24 w-24 object-contain rounded-full transition duration-500 animate-wiggle"
-                                />
+                                    width={96} // Equivalent to h-24 w-24 (24*4 = 96px)
+                                    height={96}
+                                    className="mx-auto object-contain rounded-full transition duration-500 animate-wiggle"
+                                    unoptimized // Add this if the src is not a local file or known URL.
+/>
                             ) : (
                                 // Emoji Icon (Shown in open/rejected states)
                                 <div id="emoji-icon" className={`text-6xl transform hover:scale-110 transition duration-300 ${primaryPink}`}>
